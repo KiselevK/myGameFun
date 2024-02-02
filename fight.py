@@ -8,7 +8,7 @@ class Person:
         self.strength = strength
         self.agility = agility
         self.actual_hp = self.hp = strength * 15
-        print(f'{self.name} {self.actual_hp} {self.hp}')
+        print(f'There is {self.name} with {self.actual_hp} hp')
         
 
 class Enemy(Person):
@@ -57,15 +57,25 @@ class Fight:
                 break
 
             
-        print(f'{self.hero.name} win'if self.hero.actual_hp > 0 else f'{self.hero.name} lose')
+        print(f'{self.hero.name} win this battle'if self.hero.actual_hp > 0 else f'{self.hero.name} lose battle')
 
+if __name__ == "__main__":
+    hero = Hero('Hero', 5, 8)
+    number_of_enemys = random.randint(1, 3)
+    list_of_enemys = [Enemy(
+        f'drank Buddy{i}',
+        random.randint(2, 5),
+        random.randint(2,5)
+        ) for i in range(number_of_enemys) ]
 
-
-hero = Hero('Hero', 5, 8)
-enemy1 = Enemy('Drank Hurry', 5, 6)
-
-Fight(hero, enemy1).fight()
-
+    print(f"You have {len(list_of_enemys)} enemys.")
+    for enemy in list_of_enemys:
+        if hero.actual_hp > 0:              
+            Fight(hero, enemy).fight()
+        else:
+            print("you don't have power to continue")
+            break
+            
 
 
 
