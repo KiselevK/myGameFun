@@ -61,15 +61,15 @@ class Fight:
 
 if __name__ == "__main__":
     hero = Hero('Hero', 5, 8)
-    number_of_enemys = random.randint(1, 3)
-    list_of_enemys = [Enemy(
-        f'drank Buddy{i}',
-        random.randint(2, 5),
-        random.randint(2,5)
-        ) for i in range(number_of_enemys) ]
+    number_of_enemies = random.randint(1, 3)
+    list_of_enemies = [Enemy(
+        f'drunk Buddy{i}',
+        random.randint(4, 6),
+        random.randint(4, 6)
+        ) for i in range(number_of_enemies) ]
 
-    print(f"You have {len(list_of_enemys)} enemys.")
-    for enemy in list_of_enemys:
+    print(f"You have {len(list_of_enemies)} enemies.")
+    for enemy in list_of_enemies:
         if hero.actual_hp > 0:              
             Fight(hero, enemy).fight()
         else:

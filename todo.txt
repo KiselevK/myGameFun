@@ -1,0 +1,11 @@
+fight 
+- enemy class +
+- person class +
+- fight class +
+
+- diff hits +
+- hp depens on strength +
+- miss depens on agility+
+- first hit in the battle + 
+- diff num of enemys +
+- crit depens on agility - 
