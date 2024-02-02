@@ -41,7 +41,7 @@ class Fight:
                 print(f'{warriors_order[0].name} missed')
             else:
                 warriors_order[1].actual_hp -= hit
-                print(f"{warriors_order[0].name} did {hit_name} {warriors_order[1].name} with {hit} damage. Now {warriors_order[1].name} hp is {warriors_order[1].actual_hp if warriors_order[1].actual_hp >= 0 else 0}")
+                print(f"{warriors_order[0].name} did {hit_name} {warriors_order[1].name} with {hit} damage. Now {warriors_order[1].name} hp is {max(warriors_order[1].actual_hp, 0) }")
             if warriors_order[1].actual_hp > 1:
                 #the same logic for second warrior if he still alive
                 hit_name, hit_damage = random.choice(list(warriors_order[1].attack_types.items()))   
@@ -51,19 +51,17 @@ class Fight:
                     print(f'{warriors_order[1].name} missed')
                 else:
                     warriors_order[0].actual_hp -= hit
-                    print(f"{warriors_order[1].name} did {hit_name} {warriors_order[0].name} with {hit} damage. Now {warriors_order[0].name} hp is {warriors_order[0].actual_hp if warriors_order[0].actual_hp >= 0 else 0}")
+                    print(f"{warriors_order[1].name} did {hit_name} {warriors_order[0].name} with {hit} damage. Now {warriors_order[0].name} hp is {max(warriors_order[0].actual_hp, 0)}")
 
             if self.hero.actual_hp < 1 or self.enemy.actual_hp < 1:
                 break
 
             
-        print(f'{self.hero.name} win'if self.hero.actual_hp > 0 else f'{self.hero.name}  lose')
+        print(f'{self.hero.name} win'if self.hero.actual_hp > 0 else f'{self.hero.name} lose')
 
 
 
-hits_type = {'punch to face': 0, 'hit to face': 0, 'hit to balls': 0}
-
-hero = Hero('Hero', 5, 5)
+hero = Hero('Hero', 5, 8)
 enemy1 = Enemy('Drank Hurry', 5, 6)
 
 Fight(hero, enemy1).fight()
